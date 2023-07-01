@@ -24,10 +24,14 @@ async function crawlAmazonLaptops() {
   // Extract the laptop names and prices
   var laptopData = await page.evaluate(() => {
     var laptops = [];
+    // Fetch Laptop Element
     var laptopElements = document.querySelectorAll('.sg-col-inner');
 
     for (const laptopElement of laptopElements) {
+      //Fetch Laptop Name for current element
       const nameElement = laptopElement.querySelector('.a-size-medium.a-color-base.a-text-normal');
+
+      //Fetch Laptop Price for current element
       const priceElement = laptopElement.querySelector('.a-price-whole');
 
       if (nameElement && priceElement) {
